@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+  </title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Favicon
+  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}"> -->
+  
+  <!-- Fonts (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Preload scripts for critical interactivity -->
+  <link rel="preload" as="script" href="{{ '/assets/js/dark-mode.js' | relative_url }}">
+  
+  <!-- Canonical URL (SEO)
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}"> -->
+</head>
+
+<body class="{% if site.dark_mode %}dark-theme{% endif %}">
+  <!-- Dark mode toggle (top-right corner) -->
+  <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+    <svg width="24" height="24" viewBox="0 0 24 24">
+      <path d="M12 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6zm0-10v4m0 4h.01"/>
+    </svg>
+  </button>
+
+  <!-- Header -->
+  <!-- <header class="site-header">
+    <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+    <nav class="site-nav">
+      <a href="{{ '/projects' | relative_url }}">Projects</a>
+      <a href="{{ '/blog' | relative_url }}">Blog</a>
+      <a href="{{ '/about' | relative_url }}">About</a>
+    </nav>
+  </header> -->
+
+  <!-- Main content -->
+  <main class="page-content">
+    <div class="wrapper">
+      {{ content }}  <!-- This injects the page's Markdown content -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <!-- <footer class="site-footer">
+    <div class="wrapper">
+      <div class="footer-col">
+        <p>{{ site.description }}</p>
+      </div>
+      <div class="footer-col">
+        <ul class="social-links">
+          <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+          <li><a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a></li>
+          <li><a href="mailto:{{ site.email }}">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer> -->
+
+  <!-- Scripts -->
+  <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
+  
+  <!-- Conditional loading for interactive pages -->
+  {% if page.has_plotly %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ '/assets/js/plotly-init.js' | relative_url }}"></script>
+  {% endif %}
+  
+  {% if page.has_chatbot %}
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.x/lib/index.min.js"></script>
+  {% endif %}
+  
+  <!-- Analytics (optional) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script> -->
+</body>
+</html>

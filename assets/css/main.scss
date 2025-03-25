@@ -21,3 +21,26 @@
   border-radius: 4px;
   font-size: 0.8rem;
 }
+
+// Override Minima variables
+$font-family-base: 'Inter', sans-serif;
+$font-family-code: 'Roboto Mono', monospace;
+
+// Dark theme
+body.dark-theme {
+  --background-color: #111;
+  --text-color: #eee;
+  --link-color: #6bb6ff;
+}
+
+// Dark mode toggle
+#dark-mode-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  &:hover { opacity: 1; }
+}
