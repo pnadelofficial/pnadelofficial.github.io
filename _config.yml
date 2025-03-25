@@ -1,0 +1,13 @@
+title: "Peter Nadel | NLP Research & Consulting"
+description: "NLP/AI specialist at Tufts University. Building language tools for research and industry."
+baseurl: ""
+url: "https://pnadelofficial.github.io" 
+github_username: pnadelofficial
+
+# Jekyll settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Custom vars
+email: "peter.nadel@tufts.edu"
